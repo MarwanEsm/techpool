@@ -32,7 +32,7 @@ const LocationSelector = (props: ILocations) => {
         placeholder={props.placeholder}
         // value={props.value}
         styles={customStyles}
-        id="react-select-1"
+        id="react-select"
 
     />
 }
