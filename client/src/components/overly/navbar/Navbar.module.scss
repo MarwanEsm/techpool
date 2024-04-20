@@ -1,0 +1,42 @@
+.navbar_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 40px 0 40px;
+}
+
+.navbar_container span {
+    margin: 0 10px;
+    color: #504545;
+}
+
+.navbar_container a {
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.navbar_container a:hover {
+    color: #36454f;
+}
+
+.navbar_container a:hover::before {
+    content: '';
+}
+
+
+.navbar_container a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #36454f;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.navbar_container a:hover::after {
+    width: 100%;
+}

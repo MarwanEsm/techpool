@@ -1,0 +1,70 @@
+@import './variables.scss';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+
+body {
+    font-family: $font-family;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #ffffff, #346e94);
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2 {
+    margin-bottom: 30px;
+    color: #eeedf2 !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 30px;
+    color: #eeedf2 !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 10px 0;
+}
+
+@keyframes pulseAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes boxShadowAnimation {
+    0% {
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    100% {
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+h4 {
+    animation: boxShadowAnimation 2s infinite;
+    margin-top: 20px;
+}
