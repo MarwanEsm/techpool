@@ -1,13 +1,35 @@
-import Select, { StylesConfig } from "react-select";
-import { ILocations } from "@/types/candidates"
+import React, { useEffect } from "react";
+import AsyncSelect from "react-select/async";
+import { ILocations } from "@/types/candidates";
+import { StylesConfig } from "react-select";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setLocations } from "@/redux/reducers/locationSlice";
+import { IRootState } from "@/types/redux";
 
+interface ICountryName {
+    common: string;
+}
 
-
+export interface ICountry {
+    name: ICountryName;
+}
 
 const LocationSelector = (props: ILocations) => {
+    const countries = useSelector((state: IRootState) => state.locations);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const getOptions = async () => {
+            const response = await axios.get("https://restcountries.com/v3.1/all");
+            const result = response.data;
+            dispatch(setLocations(result));
+        };
+        getOptions();
+    }, [dispatch]);
 
     const customStyles: StylesConfig = {
-        control: (provided, state) => ({
+        control: (provided: any, state: any) => ({
             ...provided,
             border: "none",
             borderRadius: "8px",
@@ -16,7 +38,7 @@ const LocationSelector = (props: ILocations) => {
                 borderColor: state.isFocused ? "none" : "gray",
             },
         }),
-        option: (provided, state) => ({
+        option: (provided: any, state: any) => ({
             ...provided,
             backgroundColor: state.isSelected ? "lightblue" : "white",
             "&:hover": {
@@ -24,18 +46,28 @@ const LocationSelector = (props: ILocations) => {
             },
         }),
     };
-    const noOptionsMessage = () => <div>{props?.message}</div>
 
-    return <Select
-        noOptionsMessage={noOptionsMessage}
-        // options={props.locations}
-        placeholder={props.placeholder}
-        // value={props.value}
-        styles={customStyles}
-        id="react-select"
+    const noOptionsMessage = () => <div>{props?.message}</div>;
 
-    />
-}
+    // const loadOptions = async (inputValue: string) => {
+    //     return countries
+    //         .find((country) =>
+    //             country.name.common.toLowerCase().includes(inputValue.toLowerCase())
+    //         )
+    //         .map((country, index) => ({
+    //             value: index,
+    //             label: country.name.common,
+    //         }));
+    // };
 
+    return (
+        <AsyncSelect
+            noOptionsMessage={noOptionsMessage}
+            // loadOptions={loadOptions}
+            placeholder={props.placeholder}
+            styles={customStyles}
+        />
+    );
+};
 
-export default LocationSelector
+export default LocationSelector;
