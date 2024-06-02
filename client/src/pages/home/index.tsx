@@ -2,29 +2,32 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { Row, Col } from "reactstrap"
+import { setLocations } from "@/redux/reducers/locationSlice"
 import Navbar from "@/components/overly/navbar/Navbar"
 import LocationSelector from "@/components/elements/input/locationSelector/LocationSelector"
 import Headline from "@/components/elements/headline/Headline"
 import axios from "axios"
-import { setLocations } from "@/redux/reducers/locationSlice"
-
-
-
 
 
 const NAV_ITEMS = [{ label: "Register", href: "/registration" }, { label: "Login", href: "/login" }]
-
 
 const Home = () => {
 
     const dispatch = useDispatch()
 
     const getOptions = async () => {
-        const response = await axios.get("https://restcountries.com/v3.1/all");
-        const result = response.data;
-        dispatch(setLocations(result))
-    };
+        try {
+            const response = await axios.get('https://countriesnow.space/api/v0.1/countries');
+            dispatch(setLocations(response.data.data.map((country: any) => ({ value: country.country, label: country.country }))))
 
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                console.error('Axios error:', error.message);
+            } else {
+                console.error('Unexpected error:', error);
+            }
+        }
+    };
 
     useEffect(() => {
         getOptions()

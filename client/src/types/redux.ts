@@ -1,8 +1,15 @@
-import { ICountry } from "../components/elements/input/locationSelector/LocationSelector"
 
+
+export interface ICountry {
+    country: string
+}
+
+export interface IListOfCountries {
+    country: ICountry[]
+}
 export interface IRootState {
     locations: {
-        locations: ICountry[];
+        locations: IListOfCountries[];
     };
     candidates: {
         searched_title: string
