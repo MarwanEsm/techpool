@@ -2,10 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconName, library, IconPrefix } from "@fortawesome/fontawesome-svg-core";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 // Initialize icons
 const initIcons = () => {
-    library.add(faUser);
+    library.add(faUser, faFacebook, faTwitter, faInstagram);
 };
 
 // Prefix mapping
