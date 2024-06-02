@@ -7,6 +7,7 @@ import Navbar from "@/components/overly/navbar/Navbar"
 import LocationSelector from "@/components/elements/input/locationSelector/LocationSelector"
 import Headline from "@/components/elements/headline/Headline"
 import axios from "axios"
+import CandidateCard from "@/components/elements/candidateCard/CandidateCard"
 
 
 
@@ -14,6 +15,18 @@ const NAV_ITEMS = [
     { label: "Register", href: "/registration" },
     { label: "Login", href: "/login" }
 ]
+
+const DUMMY_CANDIDATE = {
+    first_name: "Marwa",
+    last_name: "Esmaail",
+    location: "Dubai",
+    title: "Software Developer",
+    id: 3,
+    image: "/",
+    facebook: "www.facebook.com",
+    twitter: "www.twitter.com",
+    instagram: "www.instagram.com"
+}
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -52,6 +65,7 @@ const Home = () => {
                 />
             </Col>
         </Row>
+        <CandidateCard candidate={DUMMY_CANDIDATE} />
     </>
 
 }

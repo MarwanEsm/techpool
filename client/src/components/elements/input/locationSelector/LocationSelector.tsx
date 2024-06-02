@@ -33,7 +33,6 @@ const LocationSelector = (props: ILocations) => {
 
     const noOptionsMessage = () => <div>{props?.message}</div>;
 
-
     return (
         <Select
             noOptionsMessage={noOptionsMessage}
