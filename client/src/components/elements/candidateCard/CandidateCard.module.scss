@@ -1,24 +1,15 @@
 .cardWrapper {
-    width: 130%;
-    margin-left: -16%;
+    width: 120%;
 }
 
 .card {
-    margin-top: 6%;
-    margin-left: 6.5%;
-}
-
-.innerCard {
     visibility: "visible; animation-delay: 0.2s; animation-name: fadeInUp",
 }
 
 
-
 .span {
-    font-size: 14;
-    width: 30%;
+    font-size: 14px;
+    padding: 4px 12px;
     background-color: #3f43fd;
-    padding: 0.5%;
-    margin-left: 40%;
-    margin-top: 5%;
+    margin-top: 12px
 }

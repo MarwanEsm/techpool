@@ -9,9 +9,9 @@ const CandidateCard = (props: ICandidateProps) => {
 
         <div className={styles.cardWrapper}>
 
-            <div className={classNames(styles.card, "col-12 col-sm-6 col-lg-3")}>
+            <div className={"col-12 col-sm-6 col-lg-3"}>
 
-                <div className={classNames(styles.innerCard, "single_advisor_profile wow fadeInUp")}
+                <div className={classNames(styles.card, "single_advisor_profile wow fadeInUp")}
                     data-wow-delay="0.2s"
                 >
                     <div className="advisor_thumb" key={props.candidate.id}>
@@ -20,7 +20,6 @@ const CandidateCard = (props: ICandidateProps) => {
                             width={240}
                             height={200}
                             src={props.candidate.image}
-                            className={styles.image}
                             alt={props.candidate.first_name}
                         />
 
@@ -39,7 +38,7 @@ const CandidateCard = (props: ICandidateProps) => {
 
                     <div className="single_advisor_details_info">
                         <h6 >
-                            {props.candidate.first_name + props.candidate.last_name}
+                            {props.candidate.first_name} {props.candidate.last_name}
                         </h6>
                         <p className="designation" > {props.candidate.title} </p>
 
