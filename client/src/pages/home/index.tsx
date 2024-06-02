@@ -9,13 +9,13 @@ import Headline from "@/components/elements/headline/Headline"
 import axios from "axios"
 
 
+
 const NAV_ITEMS = [
     { label: "Register", href: "/registration" },
     { label: "Login", href: "/login" }
 ]
 
 const Home = () => {
-
     const dispatch = useDispatch()
 
     const getOptions = async () => {
@@ -47,8 +47,8 @@ const Home = () => {
             <Col lg={4} md={6} sm={8} xs={8}>
                 <LocationSelector
                     placeholder="Select location"
-                    onChange={() => console.log("value")}
                     message="We could not find a location"
+                    onChange={() => console.log("Value")}
                 />
             </Col>
         </Row>

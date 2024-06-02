@@ -17,7 +17,7 @@ const locationSlice = createSlice({
         setLocations: (state, action: PayloadAction<ICountry[]>) => {
             state.locations = action.payload;
         },
-        setSelectedLocation: (state, action: PayloadAction<ISelectedLocation>) => {
+        setSelectedLocation: (state, action) => {
             state.selectedLocation = action.payload
         }
     },

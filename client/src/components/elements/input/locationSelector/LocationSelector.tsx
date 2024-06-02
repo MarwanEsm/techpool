@@ -4,6 +4,7 @@ import { ILocations, ISelectedLocation } from "@/types/location";
 import { StylesConfig } from "react-select";
 import { useSelector, useDispatch } from "react-redux";
 import { IRootState } from "@/types/redux";
+import { setSelectedLocation } from "@/redux/reducers/locationSlice";
 
 
 
