@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ICountry } from "@/components/elements/input/locationSelector/LocationSelector";
+import { ICountry } from "@/types/redux";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 interface LocationState {

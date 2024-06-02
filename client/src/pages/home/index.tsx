@@ -9,7 +9,10 @@ import Headline from "@/components/elements/headline/Headline"
 import axios from "axios"
 
 
-const NAV_ITEMS = [{ label: "Register", href: "/registration" }, { label: "Login", href: "/login" }]
+const NAV_ITEMS = [
+    { label: "Register", href: "/registration" },
+    { label: "Login", href: "/login" }
+]
 
 const Home = () => {
 
@@ -18,7 +21,9 @@ const Home = () => {
     const getOptions = async () => {
         try {
             const response = await axios.get('https://countriesnow.space/api/v0.1/countries');
-            dispatch(setLocations(response.data.data.map((country: any) => ({ value: country.country, label: country.country }))))
+            dispatch(setLocations(response.data.data.map(
+                (country: any) => ({ value: country.country, label: country.country }))
+            ))
 
         } catch (error) {
             if (axios.isAxiosError(error)) {
@@ -39,7 +44,7 @@ const Home = () => {
         <Headline size={4} character=".">Let us help you find a candidate</Headline>
 
         <Row className="justify-content-center">
-            <Col lg={4}>
+            <Col lg={4} md={6} sm={8} xs={8}>
                 <LocationSelector
                     placeholder="Select location"
                     onChange={() => console.log("LOCATION")}

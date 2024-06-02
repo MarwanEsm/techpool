@@ -7,14 +7,9 @@ import Link from "next/link";
 
 
 
-
-
-
 const Navbar = (props: INavbar) => {
 
-
     return <div className={styles.navbar_container}>
-
         <div>
             <Logo width={50} height={50} src={photo} alt="candidate" />
         </div>
@@ -28,8 +23,6 @@ const Navbar = (props: INavbar) => {
             ))}
         </div>
     </div>
-
-
 }
 
 
