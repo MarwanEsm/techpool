@@ -1,17 +1,18 @@
 import styles from "./CandidateCard.module.scss"
 import classNames from "classnames"
-import { ICandidateProps } from "@/types/candidates"
 import Image from "next/image"
+import { ICandidateProps } from "@/types/candidates"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
+
+
 const CandidateCard = (props: ICandidateProps) => {
 
     return <div className="container">
 
         <div className={styles.cardWrapper}>
-
             <div className={"col-md-6 col-sm-8 col-lg-4"}>
-
                 <div className={classNames(styles.card, "single_advisor_profile wow fadeInUp")}
                     data-wow-delay="0.2s"
                 >

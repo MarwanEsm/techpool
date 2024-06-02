@@ -10,7 +10,6 @@ import axios from "axios"
 import CandidateCard from "@/components/elements/candidateCard/CandidateCard"
 
 
-
 const NAV_ITEMS = [
     { label: "Register", href: "/registration" },
     { label: "Login", href: "/login" }

@@ -2,10 +2,8 @@ import React from "react";
 import styles from "./Navbar.module.scss";
 import photo from '../../../assets/logo.png'
 import Logo from "@/components/elements/logo/Logo";
-import { INavbar, INavItem } from "@/types/navbar";
 import Link from "next/link";
-
-
+import { INavbar, INavItem } from "@/types/navbar";
 
 const Navbar = (props: INavbar) => {
 

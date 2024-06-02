@@ -1,5 +1,10 @@
 .cardWrapper {
     width: 120%;
+    margin-top: 60px;
+}
+
+.cardWrapper:hover {
+    cursor: pointer;
 }
 
 .card {
