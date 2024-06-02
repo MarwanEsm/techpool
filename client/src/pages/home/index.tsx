@@ -47,7 +47,7 @@ const Home = () => {
             <Col lg={4} md={6} sm={8} xs={8}>
                 <LocationSelector
                     placeholder="Select location"
-                    onChange={() => console.log("LOCATION")}
+                    onChange={() => console.log("value")}
                     message="We could not find a location"
                 />
             </Col>

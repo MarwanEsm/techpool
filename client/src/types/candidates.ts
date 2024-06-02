@@ -1,15 +1,4 @@
-export interface ILocation {
-    location: string | undefined,
-    id: number | undefined
-}
-
-export interface ILocations {
-    locations?: ILocation[] | [],
-    placeholder: string,
-    value?: string,
-    message: string,
-    onChange: () => void
-}
+import { ILocation } from "./location"
 
 
 export interface ICandidate {

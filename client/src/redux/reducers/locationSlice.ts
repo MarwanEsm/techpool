@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ICountry } from "@/types/redux";
+import { ICountry, ISelectedLocation } from "@/types/location";
+import { ILocationState } from "@/types/location";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-interface LocationState {
-    locations: ICountry[];
-}
 
-const initialState: LocationState = {
+
+const initialState: ILocationState = {
     locations: [],
+    selectedLocation: { value: "", label: "" }
 };
 
 const locationSlice = createSlice({
@@ -17,8 +17,11 @@ const locationSlice = createSlice({
         setLocations: (state, action: PayloadAction<ICountry[]>) => {
             state.locations = action.payload;
         },
+        setSelectedLocation: (state, action: PayloadAction<ISelectedLocation>) => {
+            state.selectedLocation = action.payload
+        }
     },
 });
 
-export const { setLocations } = locationSlice.actions;
+export const { setLocations, setSelectedLocation } = locationSlice.actions;
 export default locationSlice.reducer;

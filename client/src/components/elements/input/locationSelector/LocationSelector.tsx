@@ -1,13 +1,15 @@
 import React from "react";
 import Select from "react-select"
-import { ILocations } from "@/types/candidates";
+import { ILocations, ISelectedLocation } from "@/types/location";
 import { StylesConfig } from "react-select";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { IRootState } from "@/types/redux";
+
 
 
 const LocationSelector = (props: ILocations) => {
     const countries = useSelector((state: IRootState) => state.locations.locations);
+    const dispatch = useDispatch()
 
     const customStyles: StylesConfig = {
         control: (provided: any, state: any) => ({
@@ -37,6 +39,7 @@ const LocationSelector = (props: ILocations) => {
             options={countries}
             placeholder={props.placeholder}
             styles={customStyles}
+            onChange={props.onChange}
         />
     );
 };
