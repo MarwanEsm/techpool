@@ -26,5 +26,5 @@ export interface ILocations {
     placeholder: string,
     value?: string,
     message: string,
-    onChange: () => void
+    onChange: (value: any) => void; // Update this line to accept an argument
 }

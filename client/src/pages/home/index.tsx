@@ -2,7 +2,7 @@
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { Row, Col } from "reactstrap"
-import { setLocations } from "@/redux/reducers/locationSlice"
+import { setLocations, setSelectedLocation } from "@/redux/reducers/locationSlice"
 import Navbar from "@/components/overly/navbar/Navbar"
 import LocationSelector from "@/components/elements/input/locationSelector/LocationSelector"
 import Headline from "@/components/elements/headline/Headline"
@@ -48,7 +48,7 @@ const Home = () => {
                 <LocationSelector
                     placeholder="Select location"
                     message="We could not find a location"
-                    onChange={() => console.log("Value")}
+                    onChange={(value: any) => dispatch(setSelectedLocation(value))}
                 />
             </Col>
         </Row>
