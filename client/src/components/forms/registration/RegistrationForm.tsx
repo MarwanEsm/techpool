@@ -2,11 +2,16 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Form from "react-bootstrap/Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEnvelope, faLock, faKey, faBuilding } from "@fortawesome/free-solid-svg-icons";
 // import {serverURL} from '../config';
 import styles from "./RegistrationForm.module.scss"
+import { IRegistrationDetails } from "@/types/forms";
+import { faFacebook, faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
+
+
+
 const RegistrationForm = () => {
-    const [state, setState] = useState({
+    const [state, setState] = useState<IRegistrationDetails>({
         email: "",
         password: "",
         confirmationPassword: "",
@@ -14,9 +19,8 @@ const RegistrationForm = () => {
         checked: false,
     });
 
-    const [checked, setChecked] = useState();
-
     const [passwordShown, setPasswordShown] = useState(false);
+
     const togglePasswordVisibility = () => {
         setPasswordShown(passwordShown ? false : true);
     };
@@ -70,15 +74,14 @@ const RegistrationForm = () => {
 
     return (
         <div className={styles.wrapper} >
-            <form action="#">
-                <div className="h5 font-weight-bold text-center mb-3">Registration</div>
 
-                <div className="form-group d-flex align-items-center">
-                    <div className="icon">
-                        <span className="far fa-envelope"></span>
-                    </div>
+            <form action="post">
+                <h4>Get Onboard</h4>
+
+                <div>
+                    <FontAwesomeIcon icon={faEnvelope} />
                     <input
-                        // autocomplete="off"
+                        autoComplete="off"
                         type="email"
                         className="form-control"
                         placeholder="Email"
@@ -89,11 +92,9 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className="form-group d-flex align-items-center">
-                    <div className="icon">
-                        <span className="fa fa-lock"></span>
-                    </div>
+                    <FontAwesomeIcon icon={faLock} />
                     <input
-                        // autocomplete="off"
+                        autoComplete="off"
                         className="form-control"
                         placeholder="Create password"
                         type={passwordShown ? "text" : "password"}
@@ -107,11 +108,9 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className="form-group d-flex align-items-center">
-                    <div className="icon">
-                        <span className="fas fa-key"></span>
-                    </div>
+                    <FontAwesomeIcon icon={faKey} />
                     <input
-                        // autocomplete="off"
+                        autoComplete="off"
                         className="form-control"
                         placeholder="Repeat password"
                         type="password"
@@ -121,14 +120,10 @@ const RegistrationForm = () => {
                     />
                 </div>
                 <div className="form-group d-flex align-items-center">
-                    <div className="icon">
-                        <span className="fas fa-building"></span>
-                    </div>
+                    <FontAwesomeIcon icon={faBuilding} />
                     <select
                         className="form-control"
                         name="owner"
-                        // as="select"
-                        // onChange={handleDropDown}
                         defaultValue="Choose..."
                     >
                         <option value="candidate">
@@ -145,18 +140,16 @@ const RegistrationForm = () => {
                         className="custom-control custom-checkbox custom-control-inline"
                     >
                         <input
-                            id="chk1"
+                            id="checkbox"
                             type="checkbox"
-                            name="chk"
+                            name="checkbox"
                             className="custom-control-input"
                             defaultChecked={false}
-                            value={checked}
+                        // value={checked}
                         // onChange={() => setChecked(!checked)}
                         />
                         <label
-                            // for="chk1"
                             className="custom-control-label consent"
-
                         >
                             Agree to terms and conditions
                         </label>
@@ -176,23 +169,22 @@ const RegistrationForm = () => {
                     <Link href="#">Terms of Service</Link>. */}
                 </div>
                 <div className="connect border-bottom mt-4 mb-4" style={orStyle}></div>
-                <ul className="p-0 social-links">
-                    <li>
-                        {/* <Link to="#">
-                            <span className="fab fa-facebook-f"></span>
-                        </Link> */}
-                    </li>
-                    <li>
-                        {/* <Link to="#">
-                            <span className="fab fa-google"></span>
-                        </Link> */}
-                    </li>
-                    {/* <li>
-                        <Link to="#">
-                            <span className="fab fa-github"></span>
-                        </Link>
-                    </li> */}
-                </ul>
+
+                <Link href={"/google"}>
+                    <FontAwesomeIcon icon={faFacebook} />
+                </Link>
+
+
+                <Link href={"/google"}>
+                    <FontAwesomeIcon icon={faGoogle} />
+                </Link>
+
+
+                <Link href={"github"}>
+                    <FontAwesomeIcon icon={faGithub} />
+                </Link>
+
+
             </form>
         </div>
     );
