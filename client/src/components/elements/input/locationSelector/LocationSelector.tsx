@@ -1,15 +1,13 @@
 import React from "react";
-import Select from "react-select"
+import Select from "react-select";
 import { ILocations } from "@/types/location";
 import { StylesConfig } from "react-select";
 import { useSelector, useDispatch } from "react-redux";
 import { IRootState } from "@/types/redux";
 
-
-
 const LocationSelector = (props: ILocations) => {
     const countries = useSelector((state: IRootState) => state.locations.locations);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const customStyles: StylesConfig = {
         control: (provided: any, state: any) => ({
@@ -27,6 +25,14 @@ const LocationSelector = (props: ILocations) => {
             "&:hover": {
                 backgroundColor: "lightgray",
             },
+        }),
+        menu: (provided: any) => ({
+            ...provided,
+            zIndex: 100,
+        }),
+        menuList: (provided: any) => ({
+            ...provided,
+            zIndex: 100,
         }),
     };
 

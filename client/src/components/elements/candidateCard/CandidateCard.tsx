@@ -4,7 +4,7 @@ import Image from "next/image"
 import { ICandidateProps } from "@/types/candidates"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-
+import Link from "next/link";
 
 
 const CandidateCard = (props: ICandidateProps) => {
@@ -26,17 +26,17 @@ const CandidateCard = (props: ICandidateProps) => {
                         />
 
                         <div className="social-info">
-                            <a href={props.candidate.facebook} target="_blank">
+                            <Link href={props.candidate.facebook} target="_blank">
                                 <FontAwesomeIcon icon={faFacebook} />
-                            </a>
+                            </Link>
 
-                            <a href={`https://www.twitter.com/${props.candidate.twitter}`} target="_blank">
+                            <Link href={`https://www.twitter.com/${props.candidate.twitter}`} target="_blank">
                                 <FontAwesomeIcon icon={faTwitter} />
-                            </a>
+                            </Link>
 
-                            <a href={`https://www.instagram.com/${props.candidate.instagram}`} target="_blank">
+                            <Link href={`https://www.instagram.com/${props.candidate.instagram}`} target="_blank">
                                 <FontAwesomeIcon icon={faInstagram} />
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
