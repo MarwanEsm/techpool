@@ -16,20 +16,13 @@
     margin-top: 3%;
 }
 
-.wrapper .form-group {
+.inputContainer {
     border-bottom: 1px solid #ccc;
     margin-bottom: 1.5rem;
+    position: relative;
 }
 
-.wrapper .form-group:hover {
-    border-bottom: 1px solid #eee;
-}
-
-.wrapper .form-group .icon {
-    color: #e8e8e8;
-}
-
-.wrapper .form-group .form-control {
+.inputContainer input {
     background: inherit;
     border: none;
     border-radius: 0px;
@@ -37,16 +30,16 @@
     color: #e9e9e9;
 }
 
-.wrapper .form-group input::placeholder {
+.inputContainer input::placeholder {
     color: white !important;
     font-size: 14px;
 }
 
-.wrapper .form-group input:focus::placeholder {
+.inputContainer input:focus::placeholder {
     opacity: 0;
 }
 
-.wrapper .form-group .fa-phone {
+.inputContainer .fa-phone {
     transform: rotate(90deg);
 }
 

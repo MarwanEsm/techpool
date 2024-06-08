@@ -78,12 +78,14 @@ const RegistrationForm = () => {
             <form action="post">
                 <h4>Get Onboard</h4>
 
-                <div>
-                    <FontAwesomeIcon icon={faEnvelope} />
+                <div className={styles.inputContainer}>
+                    <div className={styles.icon}>
+                        <FontAwesomeIcon icon={faEnvelope} />
+                    </div>
+
                     <input
                         autoComplete="off"
                         type="email"
-                        className="form-control"
                         placeholder="Email"
                         name="email"
                         // onChange={handleChange}
@@ -91,11 +93,13 @@ const RegistrationForm = () => {
                     />
                 </div>
 
-                <div className="form-group d-flex align-items-center">
-                    <FontAwesomeIcon icon={faLock} />
+                <div className={styles.inputContainer}>
+                    <div className={styles.icon}>
+                        <FontAwesomeIcon icon={faLock} />
+                    </div>
+
                     <input
                         autoComplete="off"
-                        className="form-control"
                         placeholder="Create password"
                         type={passwordShown ? "text" : "password"}
                         name="password"
@@ -107,11 +111,12 @@ const RegistrationForm = () => {
                     </div>
                 </div>
 
-                <div className="form-group d-flex align-items-center">
-                    <FontAwesomeIcon icon={faKey} />
+                <div className={styles.inputContainer}>
+                    <div className={styles.icon}>
+                        <FontAwesomeIcon icon={faKey} />
+                    </div>
                     <input
                         autoComplete="off"
-                        className="form-control"
                         placeholder="Repeat password"
                         type="password"
                         // onChange={handleChange}
@@ -119,8 +124,11 @@ const RegistrationForm = () => {
                         value={state.confirmationPassword}
                     />
                 </div>
-                <div className="form-group d-flex align-items-center">
-                    <FontAwesomeIcon icon={faBuilding} />
+
+                <div className={styles.inputContainer}>
+                    <div className={styles.icon}>
+                        <FontAwesomeIcon icon={faBuilding} />
+                    </div>
                     <select
                         className="form-control"
                         name="owner"
