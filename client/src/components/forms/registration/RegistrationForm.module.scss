@@ -22,7 +22,8 @@
     position: relative;
 }
 
-.inputContainer input {
+.inputContainer input,
+.inputContainer select {
     background: inherit;
     border: none;
     border-radius: 0px;
@@ -30,9 +31,20 @@
     color: #e9e9e9;
 }
 
+.inputContainer .icon {
+    color: #e9e9e9;
+    position: absolute;
+    right: 10px
+}
+
 .inputContainer input::placeholder {
     color: white !important;
     font-size: 14px;
+}
+
+.inputContainer select {
+    font-size: 14px;
+    color: white;
 }
 
 .inputContainer input:focus::placeholder {
@@ -43,8 +55,8 @@
     transform: rotate(90deg);
 }
 
-.wrapper .option {
-    color: #ccc;
+.inputContainer select option {
+    color: black;
     display: block;
     position: relative;
     padding-left: 25px;
@@ -53,55 +65,28 @@
     user-select: none;
 }
 
-.wrapper .option:hover {
-    color: #eee;
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.wrapper .option input {
-    position: absolute;
-    opacity: 0;
+.checkboxContainer input {
+    margin-right: 5px;
+}
+
+.checkboxContainer input:hover {
     cursor: pointer;
-    height: 0;
-    width: 0;
 }
 
-.wrapper .checkmark {
-    position: absolute;
-    top: 3px;
-    left: 0;
-    height: 18px;
-    width: 18px;
-    background-color: inherit;
-    border: 2px solid #ccc;
-    border-radius: 2px;
+.checkboxContainer label {
+    color: rgb(239, 230, 230);
+    font-size: 14px;
 }
 
-.wrapper .option input:checked~.checkmark {
-    transition: 300ms ease-in-out all;
-}
-
-.wrapper .checkmark:after {
-    content: "\2713";
-    position: absolute;
-    display: none;
-    font-weight: 600;
-    color: #fff;
-    font-size: 0.9rem;
-}
-
-.wrapper .option input:checked~.checkmark:after {
-    display: block;
-}
-
-.wrapper .option .checkmark:after {
-    left: 2px;
-    top: -4px;
-    width: 5px;
-    height: 10px;
-}
-
-.wrapper .btn.btn-primary {
-    position: relative;
+.wrapper button {
+    background-color: transparent;
+    font-size: 14px;
     color: #eee;
     padding: 0.3rem 1rem;
     border-radius: 20px;
@@ -111,108 +96,95 @@
     overflow: hidden;
 }
 
-.wrapper .btn.btn-primary:hover {
-    background-color: #b4b4b433;
-    color: #fff;
+.wrapper button:hover {
+    transform: scale(1.05);
+    transition: 300ms ease-in-out all;
 }
 
-.wrapper .terms {
-    color: #bbb;
-    font-size: 0.85rem;
-    text-align: center;
-}
 
-.wrapper .terms a {
-    text-decoration: none;
-    color: #eee;
-}
 
-.wrapper .terms a:hover {
-    color: #fff;
-}
+// .wrapper .connect {
+//     position: relative;
 
-.wrapper .connect {
-    position: relative;
+// }
 
-}
+// .wrapper .connect::after {
+//     content: "or";
+//     position: absolute;
+//     top: -12px;
+//     width: 80px;
+//     left: 39%;
+//     text-align: center;
+//     color: #eee;
+//     z-index: 100;
+//     background-color: rgba(255, 255, 255, 0.315);
+//     background: -webkit-linear-gradient(left, #acabcc, #55b6ee)
+// }
 
-.wrapper .connect::after {
-    content: "or";
-    position: absolute;
-    top: -12px;
-    width: 80px;
-    left: 39%;
-    text-align: center;
-    color: #eee;
-    z-index: 100;
-    background-color: rgba(255, 255, 255, 0.315);
-    background: -webkit-linear-gradient(left, #acabcc, #55b6ee)
-}
+// .wrapper .social-links {
+//     margin-top: 50px;
+//     position: relative;
+//     list-style: none;
+//     display: flex;
+//     justify-content: space-around;
+// }
 
-.wrapper .social-links {
-    margin-top: 50px;
-    position: relative;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-}
+// .wrapper .social-links li a {
+//     font-size: 1.2rem;
+//     width: 50px;
+//     height: 50px;
+//     background-color: #ffffff17;
+//     border: 1px solid #ffffff66;
+//     border-right: 1px solid #ffffff33;
+//     border-bottom: 1px solid #ffffff33;
+//     display: flex;
+//     text-decoration: none;
+//     justify-content: center;
+//     align-items: center;
+//     color: #fff;
+//     border-radius: 6px;
+//     box-shadow: 0 5px 30px #004683e0;
+//     transition: 0.5s;
+//     overflow: hidden;
+// }
 
-.wrapper .social-links li a {
-    font-size: 1.2rem;
-    width: 50px;
-    height: 50px;
-    background-color: #ffffff17;
-    border: 1px solid #ffffff66;
-    border-right: 1px solid #ffffff33;
-    border-bottom: 1px solid #ffffff33;
-    display: flex;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    border-radius: 6px;
-    box-shadow: 0 5px 30px #004683e0;
-    transition: 0.5s;
-    overflow: hidden;
-}
+// .wrapper .social-links li a:hover {
+//     transform: translateY(-20px);
+// }
 
-.wrapper .social-links li a:hover {
-    transform: translateY(-20px);
-}
+// .wrapper .social-links li a::before,
+// .wrapper .btn.btn-primary::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 25px;
+//     height: 100%;
+//     background-color: rgba(255, 255, 255, 0.6);
+//     transform: skew(45deg) translateX(130px);
+//     transition: 0.5s;
+//     opacity: 0;
+// }
 
-.wrapper .social-links li a::before,
-.wrapper .btn.btn-primary::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 25px;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
-    transform: skew(45deg) translateX(130px);
-    transition: 0.5s;
-    opacity: 0;
-}
+// .wrapper .social-links li a:hover:before,
+// .wrapper .btn.btn-primary:hover::before {
+//     opacity: 1;
+//     transform: skew(45deg) translateX(-130px);
+// }
 
-.wrapper .social-links li a:hover:before,
-.wrapper .btn.btn-primary:hover::before {
-    opacity: 1;
-    transform: skew(45deg) translateX(-130px);
-}
+// @media (max-width: 460px) {
+//     .wrapper {
+//         margin: 15px;
+//         padding: 20px;
+//     }
 
-@media (max-width: 460px) {
-    .wrapper {
-        margin: 15px;
-        padding: 20px;
-    }
+//     .wrapper .connect::after {
+//         left: 38%;
+//     }
+// }
 
-    .wrapper .connect::after {
-        left: 38%;
-    }
-}
-
-@media (max-width: 345px) {
-    .wrapper .connect::after {
-        left: 32%;
-    }
-}
+// @media (max-width: 345px) {
+//     .wrapper .connect::after {
+//         left: 32%;
+//     }
+// }

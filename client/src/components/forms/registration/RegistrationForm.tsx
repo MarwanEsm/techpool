@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Form from "react-bootstrap/Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEnvelope, faLock, faKey, faBuilding } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEnvelope, faLock, faKey, faBuilding, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import {serverURL} from '../config';
+import { Button } from "reactstrap";
 import styles from "./RegistrationForm.module.scss"
 import { IRegistrationDetails } from "@/types/forms";
 import { faFacebook, faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
@@ -65,12 +66,7 @@ const RegistrationForm = () => {
     //             });
     //     }
     // };
-    const eyeIcon = passwordShown ? (
-        <FontAwesomeIcon icon={faEye} />
-    ) : (
-        <span className="fas fa-eye-slash"></span>
-    );
-    const eye = <FontAwesomeIcon icon={faEye} />;
+
 
     return (
         <div className={styles.wrapper} >
@@ -82,7 +78,6 @@ const RegistrationForm = () => {
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faEnvelope} />
                     </div>
-
                     <input
                         autoComplete="off"
                         type="email"
@@ -94,10 +89,9 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className={styles.inputContainer}>
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon={faLock} />
+                    <div className={styles.icon} onClick={togglePasswordVisibility}>
+                        <FontAwesomeIcon icon={!passwordShown ? faEyeSlash : faEye} />
                     </div>
-
                     <input
                         autoComplete="off"
                         placeholder="Create password"
@@ -106,9 +100,6 @@ const RegistrationForm = () => {
                         // onChange={handleChange}
                         value={state.password}
                     />
-                    <div className="icon btn">
-                        <span onClick={togglePasswordVisibility}>{eyeIcon}</span>
-                    </div>
                 </div>
 
                 <div className={styles.inputContainer}>
@@ -129,69 +120,44 @@ const RegistrationForm = () => {
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faBuilding} />
                     </div>
-                    <select
-                        className="form-control"
-                        name="owner"
-                        defaultValue="Choose..."
-                    >
-                        <option value="candidate">
-                            Candidate
-                        </option>
-                        <option value="employer">
-                            Employer
-                        </option>
+                    <select name="owner" defaultValue="Choose...">
+                        <option value="candidate">Candidate</option>
+                        <option value="employer">Employer</option>
                     </select>
                 </div>
 
-                <Form.Group id="formGridCheckbox">
-                    <div
-                        className="custom-control custom-checkbox custom-control-inline"
-                    >
-                        <input
-                            id="checkbox"
-                            type="checkbox"
-                            name="checkbox"
-                            className="custom-control-input"
-                            defaultChecked={false}
-                        // value={checked}
-                        // onChange={() => setChecked(!checked)}
-                        />
-                        <label
-                            className="custom-control-label consent"
-                        >
-                            Agree to terms and conditions
-                        </label>
-                    </div>
-                </Form.Group>
-
-                <div
-                    className="btn btn-primary mb-3"
-                // onClick={submitDetails}
-
-                >
-                    Sign up
+                <div className={styles.checkboxContainer}>
+                    <input
+                        id="checkbox"
+                        type="checkbox"
+                        name="checkbox"
+                        defaultChecked={false}
+                    // value={checked}
+                    // onChange={() => setChecked(!checked)}
+                    />
+                    <label>Agree to the Fine Print</label>
                 </div>
-                <div className="terms mb-2" style={termsStyle}>
-                    By clicking Sign up, you acknowledge that you have read the
-                    {/* <Link href={"/"}>Privacy Policy</Link> and agree to the
-                    <Link href="#">Terms of Service</Link>. */}
+
+                <button> Sign up</button>
+
+                <div className="connect border-bottom mt-4 mb-4"></div>
+
+                <div>
+                    <Link href={"/google"}>
+                        <FontAwesomeIcon icon={faFacebook} />
+                    </Link>
+
+
+                    <Link href={"/google"}>
+                        <FontAwesomeIcon icon={faGoogle} />
+                    </Link>
+
+
+                    <Link href={"github"}>
+                        <FontAwesomeIcon icon={faGithub} />
+                    </Link>
+
                 </div>
-                <div className="connect border-bottom mt-4 mb-4" style={orStyle}></div>
-
-                <Link href={"/google"}>
-                    <FontAwesomeIcon icon={faFacebook} />
-                </Link>
-
-
-                <Link href={"/google"}>
-                    <FontAwesomeIcon icon={faGoogle} />
-                </Link>
-
-
-                <Link href={"github"}>
-                    <FontAwesomeIcon icon={faGithub} />
-                </Link>
-
 
             </form>
         </div>
@@ -204,13 +170,6 @@ const RegistrationForm = () => {
 
 
 
-const termsStyle = {
-    color: "gray",
-};
-
-const orStyle = {
-    background: "-webkit-linear-gradient(right, #acabcc, #55b6ee)",
-};
 
 
 export default RegistrationForm;
