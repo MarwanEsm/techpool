@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import Form from "react-bootstrap/Form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEnvelope, faLock, faKey, faBuilding, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import {serverURL} from '../config';
-import { Button } from "reactstrap";
 import styles from "./RegistrationForm.module.scss"
 import { IRegistrationDetails } from "@/types/forms";
-import { faFacebook, faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 
 
@@ -117,9 +114,6 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className={styles.inputContainer}>
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon={faBuilding} />
-                    </div>
                     <select name="owner" defaultValue="Choose...">
                         <option value="candidate">Candidate</option>
                         <option value="employer">Employer</option>
@@ -138,28 +132,25 @@ const RegistrationForm = () => {
                     <label>Agree to the Fine Print</label>
                 </div>
 
-                <button> Sign up</button>
 
                 <div className="connect border-bottom mt-4 mb-4"></div>
 
-                <div>
-                    <Link href={"/google"}>
-                        <FontAwesomeIcon icon={faFacebook} />
-                    </Link>
+                <ul className={styles.socialMedia}>
 
+                    <li>
+                        <FontAwesomeIcon icon={faLinkedin} />
+                        <input type="text" placeholder="LinkedIn" />
+                    </li>
 
-                    <Link href={"/google"}>
-                        <FontAwesomeIcon icon={faGoogle} />
-                    </Link>
-
-
-                    <Link href={"github"}>
+                    <li>
                         <FontAwesomeIcon icon={faGithub} />
-                    </Link>
+                        <input type="text" placeholder="Github" />
+                    </li>
 
-                </div>
+                </ul>
 
             </form>
+            <button> Sign up</button>
         </div>
     );
 }
