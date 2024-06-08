@@ -5,7 +5,9 @@ import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/f
 import styles from "./RegistrationForm.module.scss"
 import { IRegistrationDetails } from "@/types/forms";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { ChangeEvent } from "react";
 
+//TODO: validate the email address and password
 
 
 const RegistrationForm = () => {
@@ -14,7 +16,7 @@ const RegistrationForm = () => {
         password: "",
         confirmationPassword: "",
         owner: "candidate",
-        checked: false,
+        checked: false
     });
 
     const [passwordShown, setPasswordShown] = useState(false);
@@ -23,11 +25,10 @@ const RegistrationForm = () => {
         setPasswordShown(passwordShown ? false : true);
     };
 
-    // const handleChange = (e) => {
-    //     e.preventDefault();
-    //     setState({ ...state, [e.target.name]: e.target.value });
-    // };
-
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        setState({ ...state, [e.target.name]: e.target.value });
+    };
     // const handleDropDown = (e) => {
     //     e.preventDefault();
     //     setState({ ...state, owner: e.target.value });
@@ -80,7 +81,7 @@ const RegistrationForm = () => {
                         type="email"
                         placeholder="Email"
                         name="email"
-                        // onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                         value={state.email}
                     />
                 </div>
@@ -94,7 +95,7 @@ const RegistrationForm = () => {
                         placeholder="Create password"
                         type={passwordShown ? "text" : "password"}
                         name="password"
-                        // onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                         value={state.password}
                     />
                 </div>
@@ -107,7 +108,7 @@ const RegistrationForm = () => {
                         autoComplete="off"
                         placeholder="Repeat password"
                         type="password"
-                        // onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                         name="confirmationPassword"
                         value={state.confirmationPassword}
                     />
@@ -120,6 +121,18 @@ const RegistrationForm = () => {
                     </select>
                 </div>
 
+                <ul className={styles.socialMedia}>
+                    <li>
+                        <FontAwesomeIcon icon={faLinkedin} className={styles.socialMediaIcon} />
+                        <input type="text" placeholder="LinkedIn" />
+                    </li>
+
+                    <li>
+                        <FontAwesomeIcon icon={faGithub} className={styles.socialMediaIcon} />
+                        <input type="text" placeholder="Github" />
+                    </li>
+                </ul>
+
                 <div className={styles.checkboxContainer}>
                     <input
                         id="checkbox"
@@ -127,28 +140,10 @@ const RegistrationForm = () => {
                         name="checkbox"
                         defaultChecked={false}
                     // value={checked}
-                    // onChange={() => setChecked(!checked)}
+                    // onChange={(e) => handleChange(e)}
                     />
                     <label>Agree to the Fine Print</label>
                 </div>
-
-
-                <div className="connect border-bottom mt-4 mb-4"></div>
-
-                <ul className={styles.socialMedia}>
-
-                    <li>
-                        <FontAwesomeIcon icon={faLinkedin} />
-                        <input type="text" placeholder="LinkedIn" />
-                    </li>
-
-                    <li>
-                        <FontAwesomeIcon icon={faGithub} />
-                        <input type="text" placeholder="Github" />
-                    </li>
-
-                </ul>
-
             </form>
             <button> Sign up</button>
         </div>

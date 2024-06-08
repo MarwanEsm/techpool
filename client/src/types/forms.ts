@@ -3,5 +3,5 @@ export interface IRegistrationDetails {
     password: string,
     confirmationPassword: string,
     owner: "candidate" | "employer",
-    checked: boolean,
+    checked: boolean
 }
