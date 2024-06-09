@@ -2,6 +2,7 @@ import { useState } from "react"
 import RegistrationForm from "@/components/forms/registration/RegistrationForm"
 import Navbar from "@/components/overly/navbar/Navbar"
 import Tab from "@/components/elements/tabs/Tab"
+import Divider from "@/components/elements/divider/Divider"
 
 
 
@@ -14,6 +15,19 @@ const TAB_ITEMS = [
     { label: "Register", index: 0 },
     { label: "Login", index: 1 }
 ]
+
+const config = {
+    lg: {
+        size: 4, offset: 4
+    },
+    md: {
+        size: 4, offset: 4
+    },
+    sm: {
+        size: 6, offset: 3
+    },
+
+}
 const Registration = () => {
     const [selectedTab, setSelectedTab] = useState<number>(0)
 
@@ -23,6 +37,7 @@ const Registration = () => {
             selectedTab={selectedTab}
             onClick={(e, value) => setSelectedTab(value)}
         />
+        <Divider config={config} />
         <RegistrationForm />
     </>
 }
