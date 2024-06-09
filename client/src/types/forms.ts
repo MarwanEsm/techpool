@@ -5,3 +5,8 @@ export interface IRegistrationDetails {
     owner: "candidate" | "employer",
     checked: boolean
 }
+
+export interface ILogin {
+    email: string,
+    password: string,
+}
