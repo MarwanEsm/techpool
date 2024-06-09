@@ -1,15 +1,45 @@
 .tab {
     display: flex;
     justify-content: center;
-    max-width: 40vw;
-    margin: auto;
+    margin: 40px auto 10px auto;
+    list-style: none;
+
+    max-width: 45vw;
 }
 
 
-.tab li a:hover {
+.tab a {
+    margin-right: 40px;
+}
+
+.tab a {
+    font-size: 16px;
+    color: #36454f;
+    text-decoration: none;
+    position: relative;
+}
+
+.tab a:hover {
+    color: white;
     cursor: pointer;
 }
 
-.active {
-    background: -webkit-linear-gradient(right, #acabcc, #55b6ee) !important;
+.tab a:hover::before {
+    content: '';
+}
+
+
+.tab a::after {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #36454f;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+}
+
+.tab a:hover::after {
+    width: 100%;
 }
