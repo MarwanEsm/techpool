@@ -7,6 +7,7 @@ import { IRegistrationDetails } from "@/types/forms";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { ChangeEvent } from "react";
 
+
 //TODO: validate the email address and password
 
 

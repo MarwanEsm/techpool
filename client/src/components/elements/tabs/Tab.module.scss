@@ -1,0 +1,15 @@
+.tab {
+    display: flex;
+    justify-content: center;
+    max-width: 40vw;
+    margin: auto;
+}
+
+
+.tab li a:hover {
+    cursor: pointer;
+}
+
+.active {
+    background: -webkit-linear-gradient(right, #acabcc, #55b6ee) !important;
+}
