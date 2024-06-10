@@ -18,7 +18,7 @@ const TAB_ITEMS = [
 
 const config = {
     lg: {
-        size: 4, offset: 4
+        size: 2, offset: 5
     },
     md: {
         size: 4, offset: 4
@@ -26,6 +26,9 @@ const config = {
     sm: {
         size: 6, offset: 3
     },
+    xm: {
+        size: 6, offset: 3
+    }
 
 }
 const Registration = () => {

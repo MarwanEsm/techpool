@@ -1,18 +1,12 @@
 .tab {
     display: flex;
     justify-content: center;
-    margin: 40px auto 10px auto;
+    margin: 20px auto 10px auto;
     list-style: none;
-
-    max-width: 45vw;
 }
-
 
 .tab a {
     margin-right: 40px;
-}
-
-.tab a {
     font-size: 16px;
     color: #36454f;
     text-decoration: none;
@@ -28,7 +22,6 @@
     content: '';
 }
 
-
 .tab a::after {
     content: '';
     width: 0;
@@ -42,4 +35,10 @@
 
 .tab a:hover::after {
     width: 100%;
+}
+
+.tab a.active {
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 1px;
 }

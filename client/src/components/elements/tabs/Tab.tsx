@@ -1,4 +1,5 @@
-import styles from "./Tab.module.scss";
+import React from 'react';
+import styles from './Tab.module.scss';
 
 interface ITabItem {
     label: string;
@@ -16,14 +17,16 @@ const Tab = (props: ITabItemsProps) => {
         <ul className={styles.tab}>
             {props.items.map((item, index) => (
                 <li key={index}>
-                    <a className={props.selectedTab === index ? 'active' : ''}
-                        onClick={(e) => props.onClick(e, index)}>
+                    <a
+                        className={props.selectedTab === index ? styles.active : ''}
+                        onClick={(e) => props.onClick(e, index)}
+                    >
                         {item.label}
                     </a>
                 </li>
             ))}
         </ul>
     );
-}
+};
 
 export default Tab;
