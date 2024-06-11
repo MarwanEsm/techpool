@@ -1,0 +1,23 @@
+.footer {
+    background-color: #1565c0;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 17px Candara;
+    padding-top: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 15px;
+    margin-top: 80px;
+    bottom: 0;
+    color: #fff;
+}
+
+.links {
+    display: grid;
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+}

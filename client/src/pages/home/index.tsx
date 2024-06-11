@@ -8,6 +8,7 @@ import LocationSelector from "@/components/elements/input/locationSelector/Locat
 import Headline from "@/components/elements/headline/Headline"
 import axios from "axios"
 import CandidateCard from "@/components/elements/candidateCard/CandidateCard"
+import Footer from "@/components/overly/footer/Footer"
 
 
 const NAV_ITEMS = [
@@ -65,6 +66,7 @@ const Home = () => {
             </Col>
         </Row>
         <CandidateCard candidate={DUMMY_CANDIDATE} />
+        <Footer />
     </>
 
 }
