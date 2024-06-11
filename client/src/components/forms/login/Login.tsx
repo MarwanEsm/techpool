@@ -4,7 +4,6 @@ import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/f
 // import {serverURL} from '../config';
 // import styles from "./RegistrationForm.module.scss"
 import styles from "./LoginForm.module.scss"
-import { IRegistrationDetails } from "@/types/forms";
 import { ChangeEvent } from "react";
 import { ILogin } from "@/types/forms";
 

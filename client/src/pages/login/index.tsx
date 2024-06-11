@@ -32,18 +32,19 @@ const config = {
     }
 
 }
-const Registration = () => {
-    const [selectedTab, setSelectedTab] = useState<number>(0)
+const Login = () => {
+    const [selectedTab, setSelectedTab] = useState<number>(1)
 
     return <>
         <Navbar nav_items={NAV_ITEMS} />
         <Tab items={TAB_ITEMS}
             selectedTab={selectedTab}
-            onClick={(e, value) => setSelectedTab(value)}
+            onClick={(e, value) => setSelectedTab(value)
+            }
         />
         <Divider config={config} />
         {selectedTab === 0 ? <RegistrationForm /> : <LoginForm />}
     </>
 }
 
-export default Registration
+export default Login
