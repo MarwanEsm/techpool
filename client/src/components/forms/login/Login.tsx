@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 // import {serverURL} from '../config';
-import styles from "./RegistrationForm.module.scss"
+// import styles from "./RegistrationForm.module.scss"
+import styles from "./LoginForm.module.scss"
 import { IRegistrationDetails } from "@/types/forms";
 import { ChangeEvent } from "react";
 import { ILogin } from "@/types/forms";
 
 
 //TODO: validate the email address and password
-
-
 const LoginForm = () => {
     const [state, setState] = useState<ILogin>({
         email: "",
@@ -103,13 +102,6 @@ const LoginForm = () => {
         </div>
     );
 }
-
-
-
-
-
-
-
 
 
 export default LoginForm;

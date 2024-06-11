@@ -3,6 +3,7 @@ import RegistrationForm from "@/components/forms/registration/RegistrationForm"
 import Navbar from "@/components/overly/navbar/Navbar"
 import Tab from "@/components/elements/tabs/Tab"
 import Divider from "@/components/elements/divider/Divider"
+import LoginForm from "@/components/forms/login/Login"
 
 
 
@@ -41,7 +42,7 @@ const Registration = () => {
             onClick={(e, value) => setSelectedTab(value)}
         />
         <Divider config={config} />
-        <RegistrationForm />
+        {selectedTab === 0 ? <RegistrationForm /> : <LoginForm />}
     </>
 }
 
