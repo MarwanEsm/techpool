@@ -3,21 +3,33 @@
     box-sizing: border-box;
     width: 100%;
     text-align: left;
-    font: bold 17px Candara;
-    padding-top: 25px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 15px;
-    margin-top: 80px;
+    padding: 25px 50px 15px 50px;
+    position: absolute;
     bottom: 0;
     color: #fff;
 }
 
 .links {
-    display: grid;
+    display: flex;
+    justify-content: space-around;
 }
 
 .links a {
     color: #fff;
     text-decoration: none;
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    max-width: fit-content;
+}
+
+.icon {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.icon a {
+    color: #fff;
+    font-size: 18px
 }
