@@ -4,7 +4,7 @@ import Navbar from "@/components/overly/navbar/Navbar"
 import Tab from "@/components/elements/tabs/Tab"
 import Divider from "@/components/elements/divider/Divider"
 import LoginForm from "@/components/forms/login/Login"
-
+import Footer from "@/components/overly/footer/Footer"
 
 
 const NAV_ITEMS = [
@@ -43,6 +43,7 @@ const Registration = () => {
         />
         <Divider config={config} />
         {selectedTab === 0 ? <RegistrationForm /> : <LoginForm />}
+        <Footer />
     </>
 }
 
