@@ -2,34 +2,18 @@
     background-color: #1565c0;
     box-sizing: border-box;
     width: 100%;
-    text-align: left;
-    padding: 25px 50px 15px 50px;
+    color: #fff;
     position: absolute;
     bottom: 0;
-    color: #fff;
-}
-
-.links {
     display: flex;
     justify-content: space-around;
+    margin-bottom: -20px;
+    padding: 8px 0 2px 0;
+
 }
 
-.links a {
-    color: #fff;
-    text-decoration: none;
-    margin-top: 6px;
-    font-size: 14px;
-    font-weight: bolder;
-    max-width: fit-content;
-}
 
-.icon {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 60px;
-}
-
-.icon a {
+.footer a {
     color: #fff;
     font-size: 18px
 }
