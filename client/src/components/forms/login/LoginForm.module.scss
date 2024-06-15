@@ -14,6 +14,22 @@
     margin-top: 3%;
 }
 
+
+.wrapper a {
+    text-decoration: none;
+    color: white !important;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.wrapper a:hover {
+    cursor: pointer;
+}
+
+
+
 .inputContainer,
 .socialMedia li {
     border-bottom: 1px solid #ccc;

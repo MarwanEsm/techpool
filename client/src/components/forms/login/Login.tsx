@@ -98,6 +98,7 @@ const LoginForm = () => {
 
             </form>
             <button> log-in</button>
+            <a>Password forgotten ?</a>
         </div>
     );
 }
