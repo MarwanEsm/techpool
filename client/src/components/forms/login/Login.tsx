@@ -98,8 +98,10 @@ const LoginForm = () => {
                 </div>
 
             </form>
-            <button> log-in</button>
-            <label onClick={() => setShowForgotPasswordForm(!showForgotPasswordForm)}>Password forgotten ?</label>
+            <button>log-in</button>
+            <label onClick={() => setShowForgotPasswordForm(!showForgotPasswordForm)}>
+                Password forgotten ?
+            </label>
         </div>
     );
 }
