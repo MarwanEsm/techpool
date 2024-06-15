@@ -25,9 +25,9 @@
 }
 
 .wrapper label:hover {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: text-shadow 300ms ease-in-out;
     cursor: pointer;
-    transform: scale(1.05);
-    transition: 300ms ease-in-out all;
 }
 
 

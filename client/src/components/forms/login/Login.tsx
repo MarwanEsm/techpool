@@ -6,6 +6,7 @@ import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/f
 import styles from "./LoginForm.module.scss"
 import { ChangeEvent } from "react";
 import { ILogin } from "@/types/forms";
+import ForgotPassword from "../forgotPassword/ForgotPassword";
 
 
 //TODO: validate the email address and password
@@ -63,46 +64,53 @@ const LoginForm = () => {
     // };
 
 
-    return (
-        <div className={styles.wrapper} >
+    return (<>
+        {!showForgotPasswordForm ?
+            <div className={styles.wrapper} >
 
-            <form action="post">
-                <h4>Step Inside</h4>
+                <form action="post">
+                    <h4>Step Inside</h4>
 
-                <div className={styles.inputContainer}>
-                    <div className={styles.icon}>
-                        <FontAwesomeIcon icon={faEnvelope} />
+                    <div className={styles.inputContainer}>
+                        <div className={styles.icon}>
+                            <FontAwesomeIcon icon={faEnvelope} />
+                        </div>
+                        <input
+                            autoComplete="off"
+                            type="email"
+                            placeholder="Email"
+                            name="email"
+                            onChange={(e) => handleChange(e)}
+                            value={state.email}
+                        />
                     </div>
-                    <input
-                        autoComplete="off"
-                        type="email"
-                        placeholder="Email"
-                        name="email"
-                        onChange={(e) => handleChange(e)}
-                        value={state.email}
-                    />
-                </div>
 
-                <div className={styles.inputContainer}>
-                    <div className={styles.icon} onClick={togglePasswordVisibility}>
-                        <FontAwesomeIcon icon={!passwordShown ? faEyeSlash : faEye} />
+                    <div className={styles.inputContainer}>
+                        <div className={styles.icon} onClick={togglePasswordVisibility}>
+                            <FontAwesomeIcon icon={!passwordShown ? faEyeSlash : faEye} />
+                        </div>
+                        <input
+                            autoComplete="off"
+                            placeholder="Create password"
+                            type={passwordShown ? "text" : "password"}
+                            name="password"
+                            onChange={(e) => handleChange(e)}
+                            value={state.password}
+                        />
                     </div>
-                    <input
-                        autoComplete="off"
-                        placeholder="Create password"
-                        type={passwordShown ? "text" : "password"}
-                        name="password"
-                        onChange={(e) => handleChange(e)}
-                        value={state.password}
-                    />
-                </div>
 
-            </form>
-            <button>log-in</button>
-            <label onClick={() => setShowForgotPasswordForm(!showForgotPasswordForm)}>
-                Password forgotten ?
-            </label>
-        </div>
+                </form>
+
+                <button>log-in</button>
+                <label onClick={() => setShowForgotPasswordForm(!showForgotPasswordForm)}>
+                    Password forgotten ?
+                </label>
+            </div>
+            :
+            <ForgotPassword onClick={() => setShowForgotPasswordForm(false)} />
+        }
+    </>
+
     );
 }
 
