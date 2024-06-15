@@ -15,7 +15,8 @@ const LoginForm = () => {
         password: "",
     });
 
-    const [passwordShown, setPasswordShown] = useState(false);
+    const [passwordShown, setPasswordShown] = useState<boolean>(false);
+    const [showForgotPasswordForm, setShowForgotPasswordForm] = useState<boolean>(false)
 
     const togglePasswordVisibility = () => {
         setPasswordShown(passwordShown ? false : true);
@@ -98,7 +99,7 @@ const LoginForm = () => {
 
             </form>
             <button> log-in</button>
-            <a>Password forgotten ?</a>
+            <label onClick={() => setShowForgotPasswordForm(!showForgotPasswordForm)}>Password forgotten ?</label>
         </div>
     );
 }

@@ -15,7 +15,7 @@
 }
 
 
-.wrapper a {
+.wrapper label {
     text-decoration: none;
     color: white !important;
     font-size: 12px;
@@ -24,8 +24,10 @@
     margin-top: 20px;
 }
 
-.wrapper a:hover {
+.wrapper label:hover {
     cursor: pointer;
+    transform: scale(1.05);
+    transition: 300ms ease-in-out all;
 }
 
 
