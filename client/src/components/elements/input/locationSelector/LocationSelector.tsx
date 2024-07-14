@@ -45,6 +45,7 @@ const LocationSelector = (props: ILocations) => {
             placeholder={props.placeholder}
             styles={customStyles}
             onChange={props.onChange}
+            instanceId="unique-id"
         />
     );
 };
