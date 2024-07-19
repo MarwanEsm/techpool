@@ -13,7 +13,9 @@ import Footer from "@/components/overly/footer/Footer"
 
 const NAV_ITEMS = [
     { label: "Register", href: "/registration" },
-    { label: "Login", href: "/login" }
+    { label: "Login", href: "/login" },
+    { label: "About", href: "/about" }
+
 ]
 
 const DUMMY_CANDIDATE = {
