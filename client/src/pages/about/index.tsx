@@ -31,12 +31,11 @@ const About = () => {
                 content="Connecting companies with top talent in the web development field.
                          From startups to established enterprises, we provide the platform that 
                          bridges the gap between opportunity and talent."
-                style={{ marginTop: "30px" }}
-                images={<>
-                    <Image src={AboutLogo} width={100} height={100} alt="About Us Logo" loading="lazy" />
-                    <Image src={Developer} width={100} height={100} alt="Web Developer" loading="lazy" />
-                </>
-                }
+            // images={<>
+            //     <Image src={AboutLogo} width={100} height={100} alt="About Us Logo" loading="lazy" />
+            //     <Image src={Developer} width={100} height={100} alt="Web Developer" loading="lazy" />
+            // </>
+            // }
             />
 
             <Section
@@ -46,10 +45,9 @@ const About = () => {
                          We believe in the power of technology to transform lives, and we are 
                          committed to making the web a better place for everyone."
                 style={{ color: "#555" }}
-                headlineStyle={{ margin: "30px auto 20px auto" }}
             />
 
-            <Section headline={"Our Values"} headlineStyle={{ margin: "30px auto 20px auto" }}>
+            <Section headline={"Our Values"}>
                 <ul>
                     <li>Innovation: We are always looking for new ways to solve problems and create value.</li>
                     <li>Integrity: We do the right thing, even when no one is watching.</li>
