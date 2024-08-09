@@ -56,7 +56,7 @@ const Home = () => {
 
     return <>
         <Navbar nav_items={NAV_ITEMS} />
-        <Headline size={4} character=".">Let us help you find a candidate</Headline>
+        <Headline size={4} character="." style={{ padding: "10px" }}>Let us help you find a candidate</Headline>
 
         <Row className="justify-content-center" style={{ marginTop: "30px" }}>
             <Col lg={4} md={6} sm={8} xs={8}>

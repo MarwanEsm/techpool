@@ -17,7 +17,6 @@ a {
 
 h1,
 h2 {
-    margin-bottom: 30px;
     color: #eeedf2 !important;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -28,11 +27,9 @@ h2 {
 h3,
 h4,
 h5 {
-    margin-bottom: 30px;
     color: #eeedf2 !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
-    padding: 10px 0;
 }
 
 @keyframes pulseAnimation {

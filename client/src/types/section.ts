@@ -3,5 +3,6 @@ export interface ISection {
     images?: JSX.Element,
     content?: string,
     headline?: string | boolean,
-    color?: string
+    style?: any,
+    headlineStyle?: any
 }
