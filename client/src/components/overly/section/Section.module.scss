@@ -1,0 +1,44 @@
+.container {
+    text-align: center;
+}
+
+.container p {
+    font-size: 1.1em;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.images {
+    display: flex;
+    justify-content: space-between;
+    max-width: 300px;
+    margin: 30px auto auto auto;
+
+    &.mobile {
+        align-items: center;
+    }
+
+    img {
+        max-width: 150px;
+        max-height: 150px;
+        margin: 10px;
+    }
+}
+
+.container ul {
+    list-style-type: none;
+    margin: 20px auto;
+}
+
+.container ul li {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6em;
+
+}
+
+.container ul li::before {
+    content: "✔️";
+    margin-right: 10px;
+    color: #0070f3;
+}

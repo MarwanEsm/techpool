@@ -6,6 +6,6 @@ export interface IHeadlineProps {
 
 export interface IColoredDotProps {
     children: React.ReactNode,
-    character: string,
+    character?: string,
     size: number
 }
