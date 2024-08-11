@@ -6,7 +6,7 @@ import { useIsDesktop } from "../../utils/utils";
 import Section from "@/components/overly/section/Section";
 import AboutLogo from "../../assets/About page Logo.png";
 import Developer from "../../assets/Web developer.png";
-import CEO from "../../assets/CEO.jpg";
+import CEO from "../../assets/CEO.png";
 import Footer from "@/components/overly/footer/Footer";
 
 

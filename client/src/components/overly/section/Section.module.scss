@@ -1,28 +1,42 @@
 .container {
     text-align: center;
+    margin-top: 12px;
     padding-top: 20px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(200, 200, 255, 0.5));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .container:not(:last-of-type) {
-    padding-bottom: 30px
+    padding-bottom: 30px;
 }
 
 .container:last-of-type {
-    padding-bottom: 80px
+    padding-bottom: 80px;
 }
-
 
 .container p {
     font-size: 1.1em;
     margin: auto;
     max-width: 600px;
+    color: #333;
+    line-height: 1.6;
+    transition: color 0.3s ease-in-out;
 }
+
 
 .images {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     max-width: 300px;
-    margin: 30px auto auto auto;
+    margin: 30px auto;
 
     &.mobile {
         align-items: center;
@@ -31,29 +45,41 @@
     img {
         max-width: 150px;
         max-height: 150px;
+        border-radius: 50%;
+        border: 3px solid #0070f3;
+        transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    }
+
+    img:hover {
+        transform: scale(1.1);
+        border-color: #005bb5;
     }
 }
 
 .container ul {
     list-style-type: none;
     margin: auto;
+    padding: 0;
 }
 
 .container ul li {
     font-size: 1.1em;
     color: #333;
     line-height: 1.6em;
-
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
 }
 
 .container ul li::before {
     content: "✔️";
-    margin-right: 10px;
     color: #0070f3;
 }
 
 .hasImage img {
     margin: 10px;
     object-fit: contain;
-    border-radius: 100px;
+    border-radius: 50%;
+    border: 4px solid #0070f3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
