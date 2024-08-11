@@ -8,7 +8,7 @@ const Section = (props: ISection) => {
 
     const isDesktop = useIsDesktop();
 
-    return <section className={styles.container}>
+    return <section className={classNames(styles.container, props.className)}>
         {props.headline && <Headline size={3} character="-">{props.headline}</Headline>}
         {props.content && <p style={props.style}>{props.content}</p>}
         {props.images &&

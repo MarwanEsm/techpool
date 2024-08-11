@@ -2,7 +2,7 @@ export interface IHeadlineProps {
     size: number,
     children: React.ReactNode,
     character?: string,
-    style?: any
+    className?: string
 }
 
 export interface IColoredDotProps {

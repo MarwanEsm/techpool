@@ -1,11 +1,16 @@
 .container {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .container:not(:last-of-type) {
     padding-bottom: 30px
 }
+
+.container:last-of-type {
+    padding-bottom: 80px
+}
+
 
 .container p {
     font-size: 1.1em;
@@ -46,4 +51,10 @@
     content: "✔️";
     margin-right: 10px;
     color: #0070f3;
+}
+
+.hasImage img {
+    margin: 10px 0;
+    object-fit: contain;
+    border-radius: 18px;
 }

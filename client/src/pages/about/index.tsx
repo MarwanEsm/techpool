@@ -6,6 +6,9 @@ import { useIsDesktop } from "../../utils/utils";
 import Section from "@/components/overly/section/Section";
 import AboutLogo from "../../assets/About page Logo.png";
 import Developer from "../../assets/Web developer.png";
+import CEO from "../../assets/CEO.jpg";
+import Footer from "@/components/overly/footer/Footer";
+
 
 const NAV_ITEMS = [
     { label: "Register", href: "/registration" },
@@ -23,19 +26,19 @@ const About = () => {
     }, [isDesktop]);
 
     return (
-        <>
+        <div>
             <Navbar nav_items={NAV_ITEMS} />
-            <Headline size={4} character="." style={{ padding: "10px" }}>We Shape the Future of Web Development</Headline>
+            <Headline size={4} character="." className="animated-h4">We Shape the Future of Web Development</Headline>
 
             <Section
                 content="Connecting companies with top talent in the web development field.
                          From startups to established enterprises, we provide the platform that 
                          bridges the gap between opportunity and talent."
-            // images={<>
-            //     <Image src={AboutLogo} width={100} height={100} alt="About Us Logo" loading="lazy" />
-            //     <Image src={Developer} width={100} height={100} alt="Web Developer" loading="lazy" />
-            // </>
-            // }
+                images={<>
+                    <Image src={AboutLogo} width={100} height={100} alt="About Us Logo" loading="lazy" />
+                    <Image src={Developer} width={100} height={100} alt="Web Developer" loading="lazy" />
+                </>
+                }
             />
 
             <Section
@@ -56,7 +59,14 @@ const About = () => {
                 </ul>
             </Section>
 
-        </>
+            <Section headline="Meet the Team" className={"hasImage"}>
+                <Image src={CEO} width={100} height={100} alt="CEO" />
+                <h5>Marwan Esmaail</h5>
+                <p>CEO & Founder</p>
+            </Section>
+            <Footer />
+
+        </div >
     );
 };
 
