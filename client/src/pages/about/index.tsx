@@ -35,8 +35,8 @@ const About = () => {
                          From startups to established enterprises, we provide the platform that 
                          bridges the gap between opportunity and talent."
                 images={<>
-                    <Image src={AboutLogo} width={100} height={100} alt="About Us Logo" loading="lazy" />
-                    <Image src={Developer} width={100} height={100} alt="Web Developer" loading="lazy" />
+                    <Image src={AboutLogo} width={60} height={60} alt="About Us Logo" loading="lazy" />
+                    <Image src={Developer} width={60} height={60} alt="Web Developer" loading="lazy" />
                 </>
                 }
             />
@@ -59,7 +59,7 @@ const About = () => {
                 </ul>
             </Section>
 
-            <Section headline="Meet the Team" className={"hasImage"}>
+            <Section headline="Meet the Team" className={`hasImage`}>
                 <Image src={CEO} width={100} height={100} alt="CEO" />
                 <h5>Marwan Esmaail</h5>
                 <p>CEO & Founder</p>

@@ -31,7 +31,6 @@
     img {
         max-width: 150px;
         max-height: 150px;
-        margin: 10px;
     }
 }
 
@@ -54,7 +53,7 @@
 }
 
 .hasImage img {
-    margin: 10px 0;
+    margin: 10px;
     object-fit: contain;
-    border-radius: 18px;
+    border-radius: 100px;
 }

@@ -4,5 +4,5 @@ export interface ISection {
     content?: string,
     headline?: string | boolean,
     style?: any,
-    className?: string
+    className?: string,
 }
