@@ -17,13 +17,7 @@ const NAV_ITEMS = [
 ];
 
 const About = () => {
-    const isDesktop = useIsDesktop();
 
-    useEffect(() => {
-        if (isDesktop) {
-            console.log("Desktop view detected");
-        }
-    }, [isDesktop]);
 
     return (
         <div>

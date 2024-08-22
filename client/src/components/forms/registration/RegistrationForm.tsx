@@ -5,20 +5,24 @@ import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/f
 import styles from "./RegistrationForm.module.scss"
 import { IRegistrationDetails } from "@/types/forms";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { ChangeEvent } from "react";
+
 
 
 //TODO: validate the email address and password
-
 
 const RegistrationForm = () => {
     const [state, setState] = useState<IRegistrationDetails>({
         email: "",
         password: "",
         confirmationPassword: "",
-        owner: "candidate",
+        linkedIn: "",
+        github: "",
+        owner: "",
         checked: false
     });
+
+    console.log(state);
+
 
     const [passwordShown, setPasswordShown] = useState(false);
 
@@ -26,7 +30,7 @@ const RegistrationForm = () => {
         setPasswordShown(passwordShown ? false : true);
     };
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault();
         setState({ ...state, [e.target.name]: e.target.value });
     };
@@ -84,6 +88,7 @@ const RegistrationForm = () => {
                         name="email"
                         onChange={(e) => handleChange(e)}
                         value={state.email}
+                        required
                     />
                 </div>
 
@@ -98,6 +103,7 @@ const RegistrationForm = () => {
                         name="password"
                         onChange={(e) => handleChange(e)}
                         value={state.password}
+                        required
                     />
                 </div>
 
@@ -112,11 +118,14 @@ const RegistrationForm = () => {
                         onChange={(e) => handleChange(e)}
                         name="confirmationPassword"
                         value={state.confirmationPassword}
+                        required
                     />
                 </div>
 
                 <div className={styles.inputContainer}>
-                    <select name="owner" defaultValue="Choose...">
+                    <select name="owner" defaultValue="Choose..."
+                        onChange={(e) => handleChange(e)}
+                    >
                         <option value="candidate">Candidate</option>
                         <option value="employer">Employer</option>
                     </select>
@@ -125,12 +134,12 @@ const RegistrationForm = () => {
                 <ul className={styles.socialMedia}>
                     <li>
                         <FontAwesomeIcon icon={faLinkedin} className={styles.socialMediaIcon} />
-                        <input type="text" placeholder="LinkedIn" />
+                        <input type="text" placeholder="LinkedIn" onChange={(e) => handleChange(e)} />
                     </li>
 
                     <li>
                         <FontAwesomeIcon icon={faGithub} className={styles.socialMediaIcon} />
-                        <input type="text" placeholder="Github" />
+                        <input type="text" placeholder="Github" onChange={(e) => handleChange(e)} />
                     </li>
                 </ul>
 
@@ -140,8 +149,8 @@ const RegistrationForm = () => {
                         type="checkbox"
                         name="checkbox"
                         defaultChecked={false}
-                    // value={checked}
-                    // onChange={(e) => handleChange(e)}
+                        // value={checked}
+                        onChange={(e) => setState({ ...state, checked: e.target.checked })}
                     />
                     <label>Agree to the Fine Print</label>
                 </div>
