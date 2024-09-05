@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import Headline from "../../components/elements/headline/Headline";
 import Navbar from "../../components/overly/navbar/Navbar";
 import Image from "next/image";
-import { useIsDesktop } from "../../utils/utils";
 import Section from "@/components/overly/section/Section";
 import AboutLogo from "../../assets/About page Logo.png";
 import Developer from "../../assets/Web developer.png";
