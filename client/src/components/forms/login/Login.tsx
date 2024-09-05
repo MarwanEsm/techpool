@@ -7,6 +7,7 @@ import styles from "./LoginForm.module.scss"
 import { ChangeEvent } from "react";
 import { ILogin } from "@/types/forms";
 import ForgotPassword from "../forgotPassword/ForgotPassword";
+import Headline from "@/components/elements/headline/Headline";
 
 
 //TODO: validate the email address and password

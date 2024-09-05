@@ -13,7 +13,9 @@ import Footer from "@/components/overly/footer/Footer"
 
 const NAV_ITEMS = [
     { label: "Register", href: "/registration" },
-    { label: "Login", href: "/login" }
+    { label: "Login", href: "/login" },
+    { label: "About", href: "/about" }
+
 ]
 
 const DUMMY_CANDIDATE = {
@@ -54,7 +56,7 @@ const Home = () => {
 
     return <>
         <Navbar nav_items={NAV_ITEMS} />
-        <Headline size={4} character=".">Let us help you find a candidate</Headline>
+        <Headline size={4} character="." className="animated-h4">Let us help you find a candidate</Headline>
 
         <Row className="justify-content-center" style={{ marginTop: "30px" }}>
             <Col lg={4} md={6} sm={8} xs={8}>

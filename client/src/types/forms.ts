@@ -2,8 +2,9 @@ export interface IRegistrationDetails {
     email: string,
     password: string,
     confirmationPassword: string,
-    owner: "candidate" | "employer",
-    checked: boolean
+    linkedIn: string,
+    github: string,
+    owner: "candidate" | "employer" | "",
 }
 
 export interface ILogin {
