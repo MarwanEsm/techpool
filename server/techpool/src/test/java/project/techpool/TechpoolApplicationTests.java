@@ -1,10 +1,10 @@
-package com.techpool.demo;
+package project.techpool;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class TechpoolApplicationTests {
 
 	@Test
 	void contextLoads() {

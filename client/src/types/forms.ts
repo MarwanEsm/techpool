@@ -5,7 +5,6 @@ export interface IRegistrationDetails {
     linkedIn: string,
     github: string,
     owner: "candidate" | "employer" | "",
-    checked: boolean
 }
 
 export interface ILogin {
