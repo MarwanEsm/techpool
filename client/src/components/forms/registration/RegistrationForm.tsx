@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import styles from "./RegistrationForm.module.scss";
 import { IRegistrationDetails } from "@/types/forms";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faEye, faEyeSlash, faKey } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
+import styles from "./RegistrationForm.module.scss";
+
 const RegistrationForm = () => {
     const [registrationDetails, setRegistrationDetails] = useState<IRegistrationDetails>({
         email: "",
@@ -13,8 +13,6 @@ const RegistrationForm = () => {
         github: "",
         owner: "",
     });
-
-
 
     const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
     const [passwordShown, setPasswordShown] = useState(false);
@@ -28,17 +26,45 @@ const RegistrationForm = () => {
         setRegistrationDetails({ ...registrationDetails, [e.target.name]: e.target.value });
     };
 
-
-
     const handleCheckboxChange = () => {
         setTermsAccepted(!termsAccepted);
     };
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (registrationDetails.password !== registrationDetails.confirmationPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+        try {
+            const response = await fetch("http://localhost:8080/api/users/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: registrationDetails.email,
+                    password: registrationDetails.password,
+                    linkedIn: registrationDetails.linkedIn,
+                    github: registrationDetails.github,
+                    owner: registrationDetails.owner,
+                }),
+            });
+            if (response.ok) {
+                alert("User registered successfully!");
+            } else {
+                alert("Registration failed!");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred during registration.");
+        }
+    };
+
     return (
         <div className={styles.wrapper} >
-            <form action="post">
+            <form onSubmit={handleSubmit}>
                 <h4>Get Onboard</h4>
-
                 <div className={styles.inputContainer}>
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faEnvelope} />
@@ -113,8 +139,8 @@ const RegistrationForm = () => {
                     />
                     <label>Agree to the Fine Print</label>
                 </div>
+                <button type="submit" disabled={!termsAccepted}>Sign up</button>
             </form>
-            <button disabled={!termsAccepted}>Sign up</button>
         </div>
     );
 }

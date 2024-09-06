@@ -94,10 +94,70 @@
   - tsconfig.json
 - package-lock.json
 - package.json
+- project_structure.text
 - server
   - techpool
     - .gitignore
+    - .gradle
+      - 8.10
+        - checksums
+        - dependencies-accessors
+        - expanded
+        - fileChanges
+        - fileHashes
+        - vcsMetadata
+      - 8.9
+        - checksums
+          - checksums.lock
+        - dependencies-accessors
+          - gc.properties
+        - executionHistory
+          - executionHistory.bin
+          - executionHistory.lock
+        - expanded
+        - fileChanges
+          - last-build.bin
+        - fileHashes
+          - fileHashes.bin
+          - fileHashes.lock
+          - resourceHashesCache.bin
+        - gc.properties
+        - vcsMetadata
+      - buildOutputCleanup
+        - buildOutputCleanup.lock
+        - cache.properties
+        - outputFiles.bin
+      - vcs-1
+        - gc.properties
+    - build
+      - classes
+        - java
+          - main
+            - project
+              - techpool
+                - TechpoolApplication.class
+      - generated
+        - sources
+          - annotationProcessor
+            - java
+              - main
+          - headers
+            - java
+              - main
+      - resolvedMainClassName
+      - resources
+        - main
+          - application.properties
+          - static
+            - index.html
+          - templates
+            - index.html
+      - tmp
+        - compileJava
+          - previous-compilation-data.bin
     - build.gradle
+    - controller
+      - UserController.java
     - gradle
       - wrapper
         - gradle-wrapper.jar
@@ -105,6 +165,11 @@
     - gradlew
     - gradlew.bat
     - HELP.md
+    - model
+      - User.java
+    - service
+      - UserService.java
+      - UserServiceImpl.java
     - settings.gradle
     - src
       - main
@@ -115,7 +180,9 @@
         - resources
           - application.properties
           - static
+            - index.html
           - templates
+            - index.html
       - test
         - java
           - project
