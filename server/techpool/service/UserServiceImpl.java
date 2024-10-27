@@ -1,19 +1,17 @@
-package project.techpool.service;  // Specifies the package name for the UserServiceImpl class
+package project.techpool.service;
 
-import project.techpool.model.User;  // Import the User model
-import org.springframework.stereotype.Service;  // Import Spring Service annotation
-import org.springframework.beans.factory.annotation.Autowired;  // Import Spring Autowired annotation
+import project.techpool.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Service  // Indicates that this class is a Spring service
-public class UserServiceImpl implements UserService {  // Implement the UserService interface
+@Service
+public class UserServiceImpl implements UserService {
 
-    // Add any dependencies here
     @Autowired
-    private UserRepository userRepository;  // Assume you have a UserRepository for database operations
+    private UserRepository userRepository;
 
     @Override
     public void registerUser(User user) {
-        // Add logic to register a user
-        userRepository.save(user);  // Save the user to the database (assuming you have a repository)
+        userRepository.save(user); // Ensure UserRepository is defined and used correctly
     }
 }

@@ -1,13 +1,12 @@
-package project.techpool.model;  // Specifies the package name for the User class
+package project.techpool.model; // Specifies the package name for the User class
 
-public class User {  // Declares the User class
+public class User { // Declares the User class
 
-    private String email;  // Declares a field to store the user's email
-    private String password;  // Declares a field to store the user's password
-    private String confirmationPassword;  // Declares a field to store the password confirmation
-    private String linkedIn;  // Declares a field to store the user's LinkedIn profile URL
-    private String github;  // Declares a field to store the user's GitHub profile URL
-    private String owner;  // Declares a field to store the type of user (e.g., candidate or employer)
+    private String email; // Declares a field to store the user's email
+    private String password; // Declares a field to store the user's password
+    private String linkedIn; // Declares a field to store the user's LinkedIn profile URL
+    private String github; // Declares a field to store the user's GitHub profile URL
+    private String owner; // Declares a field to store the type of user (e.g., candidate or employer)
 
     // Getter and Setter methods for each field
 

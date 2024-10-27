@@ -1,6 +1,8 @@
 import { IRegistrationDetails } from "@/types/forms";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faEye, faEyeSlash, faKey } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from 'axios'; // Import axios
 import React, { useState } from "react";
 import styles from "./RegistrationForm.module.scss";
 
@@ -37,20 +39,19 @@ const RegistrationForm = () => {
             return;
         }
         try {
-            const response = await fetch("http://localhost:8080/api/users/register", {
-                method: "POST",
+            const response = await axios.post("http://localhost:8080/api/users/register", {
+                email: registrationDetails.email,
+                password: registrationDetails.password,
+                linkedIn: registrationDetails.linkedIn,
+                github: registrationDetails.github,
+                owner: registrationDetails.owner,
+            }, {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    email: registrationDetails.email,
-                    password: registrationDetails.password,
-                    linkedIn: registrationDetails.linkedIn,
-                    github: registrationDetails.github,
-                    owner: registrationDetails.owner,
-                }),
             });
-            if (response.ok) {
+
+            if (response.status === 200) {
                 alert("User registered successfully!");
             } else {
                 alert("Registration failed!");
@@ -62,7 +63,7 @@ const RegistrationForm = () => {
     };
 
     return (
-        <div className={styles.wrapper} >
+        <div className={styles.wrapper}>
             <form onSubmit={handleSubmit}>
                 <h4>Get Onboard</h4>
                 <div className={styles.inputContainer}>
