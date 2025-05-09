@@ -1,78 +1,71 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEnvelope, faKey, faBuilding, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-// import {serverURL} from '../config';
-import styles from "./RegistrationForm.module.scss"
 import { IRegistrationDetails } from "@/types/forms";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { ChangeEvent } from "react";
-
-
-//TODO: validate the email address and password
-
+import { faEnvelope, faEye, faEyeSlash, faKey } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from 'axios'; // Import axios
+import React, { useState } from "react";
+import styles from "./RegistrationForm.module.scss";
 
 const RegistrationForm = () => {
-    const [state, setState] = useState<IRegistrationDetails>({
+    const [registrationDetails, setRegistrationDetails] = useState<IRegistrationDetails>({
         email: "",
         password: "",
         confirmationPassword: "",
-        owner: "candidate",
-        checked: false
+        linkedIn: "",
+        github: "",
+        owner: "",
     });
 
+    const [termsAccepted, setTermsAccepted] = useState<boolean>(false);
     const [passwordShown, setPasswordShown] = useState(false);
 
     const togglePasswordVisibility = () => {
-        setPasswordShown(passwordShown ? false : true);
+        setPasswordShown(!passwordShown);
     };
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault();
-        setState({ ...state, [e.target.name]: e.target.value });
+        setRegistrationDetails({ ...registrationDetails, [e.target.name]: e.target.value });
     };
-    // const handleDropDown = (e) => {
-    //     e.preventDefault();
-    //     setState({ ...state, owner: e.target.value });
-    // };
 
-    // const submitDetails = (e) => {
-    //     e.preventDefault();
-    //     if (
-    //         state.email === "" ||
-    //         state.password === "" ||
-    //         state.confirmationPassword !== state.password ||
-    //         state.owner === "" ||
-    //         !checked
-    //     ) {
-    //         alert("Please fill in all required fields");
-    //     } else {
-    //         fetch(`${serverURL}auth/register`, {
-    //             method: "post",
-    //             headers: {
-    //                 Accept: "application/json, text/plain, */*",
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify(state),
-    //         })
-    //             .then((res) => res.json())
-    //             .then((res) => {
-    //                 console.log(res);
-    //                 if (res.success) {
-    //                     alert(res.msg);
-    //                 } else {
-    //                     alert(res.msg);
-    //                 }
-    //             });
-    //     }
-    // };
+    const handleCheckboxChange = () => {
+        setTermsAccepted(!termsAccepted);
+    };
 
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (registrationDetails.password !== registrationDetails.confirmationPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+        try {
+            const response = await axios.post("http://localhost:8080/api/users/register", {
+                email: registrationDetails.email,
+                password: registrationDetails.password,
+                linkedIn: registrationDetails.linkedIn,
+                github: registrationDetails.github,
+                owner: registrationDetails.owner,
+            }, {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (response.status === 200) {
+                alert("User registered successfully!");
+            } else {
+                alert("Registration failed!");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred during registration.");
+        }
+    };
 
     return (
-        <div className={styles.wrapper} >
-
-            <form action="post">
+        <div className={styles.wrapper}>
+            <form onSubmit={handleSubmit}>
                 <h4>Get Onboard</h4>
-
                 <div className={styles.inputContainer}>
                     <div className={styles.icon}>
                         <FontAwesomeIcon icon={faEnvelope} />
@@ -82,8 +75,9 @@ const RegistrationForm = () => {
                         type="email"
                         placeholder="Email"
                         name="email"
-                        onChange={(e) => handleChange(e)}
-                        value={state.email}
+                        onChange={handleChange}
+                        value={registrationDetails.email}
+                        required
                     />
                 </div>
 
@@ -96,8 +90,9 @@ const RegistrationForm = () => {
                         placeholder="Create password"
                         type={passwordShown ? "text" : "password"}
                         name="password"
-                        onChange={(e) => handleChange(e)}
-                        value={state.password}
+                        onChange={handleChange}
+                        value={registrationDetails.password}
+                        required
                     />
                 </div>
 
@@ -109,14 +104,15 @@ const RegistrationForm = () => {
                         autoComplete="off"
                         placeholder="Repeat password"
                         type="password"
-                        onChange={(e) => handleChange(e)}
+                        onChange={handleChange}
                         name="confirmationPassword"
-                        value={state.confirmationPassword}
+                        value={registrationDetails.confirmationPassword}
+                        required
                     />
                 </div>
 
                 <div className={styles.inputContainer}>
-                    <select name="owner" defaultValue="Choose...">
+                    <select name="owner" defaultValue="Choose..." onChange={handleChange}>
                         <option value="candidate">Candidate</option>
                         <option value="employer">Employer</option>
                     </select>
@@ -125,12 +121,12 @@ const RegistrationForm = () => {
                 <ul className={styles.socialMedia}>
                     <li>
                         <FontAwesomeIcon icon={faLinkedin} className={styles.socialMediaIcon} />
-                        <input type="text" placeholder="LinkedIn" />
+                        <input type="text" placeholder="LinkedIn" onChange={handleChange} />
                     </li>
 
                     <li>
                         <FontAwesomeIcon icon={faGithub} className={styles.socialMediaIcon} />
-                        <input type="text" placeholder="Github" />
+                        <input type="text" placeholder="Github" onChange={handleChange} />
                     </li>
                 </ul>
 
@@ -139,24 +135,15 @@ const RegistrationForm = () => {
                         id="checkbox"
                         type="checkbox"
                         name="checkbox"
-                        defaultChecked={false}
-                    // value={checked}
-                    // onChange={(e) => handleChange(e)}
+                        checked={termsAccepted}
+                        onChange={handleCheckboxChange}
                     />
                     <label>Agree to the Fine Print</label>
                 </div>
+                <button type="submit" disabled={!termsAccepted}>Sign up</button>
             </form>
-            <button> Sign up</button>
         </div>
     );
 }
-
-
-
-
-
-
-
-
 
 export default RegistrationForm;
